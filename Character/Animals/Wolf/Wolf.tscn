@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5afxrin7epvf"]
+
+[ext_resource type="Texture2D" uid="uid://c0xwvhtpaeirk" path="res://Assets/sprites/TimberWolfIdleSide.png" id="1_2xko0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2x1n"]
+atlas = ExtResource("1_2xko0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqe41"]
+atlas = ExtResource("1_2xko0")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jltbc"]
+atlas = ExtResource("1_2xko0")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e11c3"]
+atlas = ExtResource("1_2xko0")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qx8fj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2x1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqe41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jltbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e11c3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Wolf" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qx8fj")
+autoplay = "default"
+frame = 3
+frame_progress = 0.029552

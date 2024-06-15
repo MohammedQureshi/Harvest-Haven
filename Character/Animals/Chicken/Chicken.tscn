@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://bguxomsq8ul4v"]
+
+[ext_resource type="Texture2D" uid="uid://ctyn5118qlbco" path="res://Assets/sprites/CluckingChickenIdleSide.png" id="1_748qs"]
+[ext_resource type="Script" path="res://Character/Animals/Chicken/Chicken.gd" id="1_bqo82"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjtmb"]
+atlas = ExtResource("1_748qs")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_656m6"]
+atlas = ExtResource("1_748qs")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6arm4"]
+atlas = ExtResource("1_748qs")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gk8d"]
+atlas = ExtResource("1_748qs")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ydvo2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjtmb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_656m6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6arm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gk8d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Chicken" type="Node2D"]
+script = ExtResource("1_bqo82")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ydvo2")
+autoplay = "default"
+frame = 1
+frame_progress = 0.0824962

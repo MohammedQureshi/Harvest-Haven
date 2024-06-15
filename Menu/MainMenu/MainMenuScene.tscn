@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://5wntejbwprnf"]
+
+[ext_resource type="Script" path="res://Menu/MainMenu/MainMenuScript.gd" id="1_bu11p"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bu11p")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="New Game" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "New Game"
+
+[node name="Load Game" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Load Game"
+
+[node name="Multiplayer" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Multiplayer"
+
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
