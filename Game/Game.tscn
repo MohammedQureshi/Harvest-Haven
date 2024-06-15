@@ -1,17 +1,17 @@
 [gd_scene load_steps=15 format=3 uid="uid://7fokenbgnsue"]
 
 [ext_resource type="Script" path="res://Game/GameScript.gd" id="1_1po3r"]
-[ext_resource type="Texture2D" uid="uid://c67jxmya6ng3v" path="res://Assets/tileset/Grass.png" id="2_53yrx"]
-[ext_resource type="Texture2D" uid="uid://blchnuncrhsew" path="res://Assets/tileset/Water.png" id="3_x1kig"]
-[ext_resource type="Texture2D" uid="uid://c2yd6q0whvn4o" path="res://Assets/tileset/Wood_Bridge.png" id="4_4aphq"]
-[ext_resource type="Texture2D" uid="uid://bodp4xsv8o0ck" path="res://Assets/tileset/Basic_Grass_Biom_things.png" id="5_s4pk4"]
+[ext_resource type="Texture2D" uid="uid://c67jxmya6ng3v" path="res://Assets/tileset/Grass.png" id="2_kfonb"]
+[ext_resource type="Texture2D" uid="uid://blchnuncrhsew" path="res://Assets/tileset/Water.png" id="3_sylrb"]
+[ext_resource type="Texture2D" uid="uid://c2yd6q0whvn4o" path="res://Assets/tileset/Wood_Bridge.png" id="4_1xfnn"]
+[ext_resource type="Texture2D" uid="uid://bodp4xsv8o0ck" path="res://Assets/tileset/Basic_Grass_Biom_things.png" id="5_ecnw4"]
 [ext_resource type="PackedScene" uid="uid://b4m8m0nklwpuf" path="res://PlayableCharacter/Player/Player.tscn" id="6_m7pu5"]
 [ext_resource type="PackedScene" uid="uid://ckg8fdqu8urmu" path="res://Menu/PauseMenu/PauseMenuScene.tscn" id="7_2k2oh"]
 [ext_resource type="PackedScene" uid="uid://bguxomsq8ul4v" path="res://Character/Animals/Chicken/Chicken.tscn" id="8_38flb"]
 [ext_resource type="PackedScene" uid="uid://c5afxrin7epvf" path="res://Character/Animals/Wolf/Wolf.tscn" id="9_amoof"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y37n3"]
-texture = ExtResource("2_53yrx")
+texture = ExtResource("2_kfonb")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -227,7 +227,7 @@ texture = ExtResource("2_53yrx")
 8:6/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q7krr"]
-texture = ExtResource("3_x1kig")
+texture = ExtResource("3_sylrb")
 0:0/animation_columns = 4
 0:0/animation_frame_0/duration = 0.5
 0:0/animation_frame_1/duration = 0.5
@@ -238,7 +238,7 @@ texture = ExtResource("3_x1kig")
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ysddn"]
-texture = ExtResource("4_4aphq")
+texture = ExtResource("4_1xfnn")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -277,7 +277,7 @@ texture = ExtResource("4_4aphq")
 1:2/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_taqwf"]
-texture = ExtResource("5_s4pk4")
+texture = ExtResource("5_ecnw4")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
