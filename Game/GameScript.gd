@@ -4,6 +4,13 @@ extends Node2D
 
 var paused = false
 
+func _ready():
+	if MultiplayerManager.is_multiplayer:
+		if MultiplayerManager.is_host:
+			MultiplayerManager.host_game()
+		else:
+			MultiplayerManager.join_hosted_game();
+
 func _process(delta):
 	if Input.is_action_just_pressed("escape"):
 		pause(paused)

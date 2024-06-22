@@ -15,8 +15,13 @@ run/main_scene="res://Menu/MainMenu/MainMenuScene.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+MultiplayerManager="*res://Multiplayer/MultiplayerManager.gd"
+
 [display]
 
+window/size/always_on_top=true
 window/stretch/aspect="expand"
 
 [dotnet]
