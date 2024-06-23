@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 100.0
+const SPEED = 70.0
 var direction = Vector2.ZERO
 
 @onready var animated_sprite = $AnimatedSprite2D
@@ -9,6 +9,12 @@ var direction = Vector2.ZERO
 	set(id):
 		player_id = id
 		%InputSynchronizer.set_multiplayer_authority(id)
+
+@export var custom_velocity := Vector2.ZERO:
+	set(new_velocity):
+		custom_velocity = new_velocity
+		velocity = custom_velocity
+		move_and_slide()
 
 func _ready():
 	if multiplayer.get_unique_id() == player_id:
@@ -31,7 +37,7 @@ func _apply_animations(delta):
 func _apply_movement_from_input(delta):
 	direction = %InputSynchronizer.input_direction
 	
-	velocity = direction * SPEED
+	custom_velocity = direction * SPEED
 
 	move_and_slide()
 
