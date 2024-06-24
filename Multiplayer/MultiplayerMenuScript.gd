@@ -20,4 +20,5 @@ func _on_host_pressed():
 func _on_join_pressed():
 	MultiplayerManager.is_multiplayer = true
 	MultiplayerManager.is_host = false
+	MultiplayerManager.SERVER_IP = $"MarginContainer/VBoxContainer/IP Address".text
 	get_tree().change_scene_to_file(GAME_SCENE_PATH)

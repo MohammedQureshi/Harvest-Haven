@@ -12,10 +12,12 @@ grow_vertical = 2
 script = ExtResource("1_ocpbw")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(3.15089, 3.12652)
+custom_minimum_size = Vector2(250, 2.08165e-12)
+layout_mode = 1
+offset_right = 44.0
+offset_bottom = 78.0
+scale = Vector2(3.15583, 3.13668)
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -24,6 +26,11 @@ layout_mode = 2
 layout_mode = 2
 text = "Host
 "
+
+[node name="IP Address" type="TextEdit" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 50)
+layout_mode = 2
+placeholder_text = "127.0.0.1"
 
 [node name="Join" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
