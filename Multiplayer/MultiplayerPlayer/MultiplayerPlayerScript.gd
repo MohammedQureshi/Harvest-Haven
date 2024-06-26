@@ -2,10 +2,9 @@ extends CharacterBody2D
 
 const SPEED = 70.0
 var direction = Vector2.ZERO
+var current_animation = ""
 
 @onready var animated_sprite = $AnimatedSprite2D
-@onready var animated_hand = $Hand
-@onready var sword_animation = $Sword
 
 @export var player_id := 1:
 	set(id):
@@ -25,24 +24,20 @@ func _ready():
 		$Camera2D.enabled = false
 		
 func _apply_animations(delta):
-	
+
 	if velocity.x > 0:
 		animated_sprite.flip_h = false;
-		animated_hand.flip_h = false;
-		sword_animation.flip_h = false;
 	elif velocity.x < 0:
 		animated_sprite.flip_h = true;
-		animated_hand.flip_h = true;
-		sword_animation.flip_h = true;
 		
-	if velocity.x == 0 and velocity.y == 0: 
+	if current_animation == "attack":
+		animated_sprite.play("attack")
+		await animated_sprite.animation_finished
+		current_animation = ""
+	elif velocity.x == 0 and velocity.y == 0: 
 		animated_sprite.play("idle")
-		animated_hand.play("idle")
-		sword_animation.play("idle")
 	elif velocity.x > 0 or velocity.x < 0:
 		animated_sprite.play("run-x")
-		animated_hand.play("run-x")
-		sword_animation.play("run-x")
 
 func _apply_movement_from_input(delta):
 	direction = %InputSynchronizer.input_direction
@@ -57,3 +52,7 @@ func _physics_process(delta):
 		
 	if not multiplayer.is_server() || MultiplayerManager.is_host:
 		_apply_animations(delta)
+
+func _input(event):
+	if event.is_action_pressed("attack"):
+		current_animation = "attack"
