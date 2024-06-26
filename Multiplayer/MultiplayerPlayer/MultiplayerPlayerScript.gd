@@ -4,6 +4,8 @@ const SPEED = 70.0
 var direction = Vector2.ZERO
 
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var animated_hand = $Hand
+@onready var sword_animation = $Sword
 
 @export var player_id := 1:
 	set(id):
@@ -26,13 +28,21 @@ func _apply_animations(delta):
 	
 	if velocity.x > 0:
 		animated_sprite.flip_h = false;
+		animated_hand.flip_h = false;
+		sword_animation.flip_h = false;
 	elif velocity.x < 0:
 		animated_sprite.flip_h = true;
+		animated_hand.flip_h = true;
+		sword_animation.flip_h = true;
 		
 	if velocity.x == 0 and velocity.y == 0: 
 		animated_sprite.play("idle")
+		animated_hand.play("idle")
+		sword_animation.play("idle")
 	elif velocity.x > 0 or velocity.x < 0:
 		animated_sprite.play("run-x")
+		animated_hand.play("run-x")
+		sword_animation.play("run-x")
 
 func _apply_movement_from_input(delta):
 	direction = %InputSynchronizer.input_direction
