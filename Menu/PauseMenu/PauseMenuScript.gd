@@ -5,10 +5,13 @@ extends Control
 const MAIN_MENU_SCENE_PATH = "res://Menu/MainMenu/MainMenuScene.tscn"
 
 func _on_resume_pressed():
-	game.pause(true)
+	if not MultiplayerManager.is_multiplayer:
+		game.pause(true)
 
 func _on_main_menu_pressed():
 	get_tree().change_scene_to_file(MAIN_MENU_SCENE_PATH);
+	if MultiplayerManager.is_multiplayer:
+		MultiplayerManager.disconnect_player()
 
 func _on_quit_pressed():
 	get_tree().quit();

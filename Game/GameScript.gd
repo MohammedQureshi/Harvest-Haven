@@ -12,15 +12,17 @@ func _ready():
 			MultiplayerManager.join_hosted_game();
 
 func _process(delta):
-	if Input.is_action_just_pressed("escape"):
-		pause(paused)
+	if not MultiplayerManager.is_multiplayer:
+		if Input.is_action_just_pressed("escape"):
+			pause(paused)
 	
 func pause(state):
-	if state:
-		pause_menu.hide()
-		get_tree().paused = false
+	if not MultiplayerManager.is_multiplayer:
+		if state:
+			pause_menu.hide()
+			get_tree().paused = false
 
-	else:
-		pause_menu.show()
-		get_tree().paused = true
+		else:
+			pause_menu.show()
+			get_tree().paused = true
 	

@@ -3,6 +3,7 @@ extends CharacterBody2D
 const SPEED = 70.0
 var direction = Vector2.ZERO
 var do_attack = false
+var current_health: int = 3
 
 @onready var animated_sprite = $AnimatedSprite2D
 
@@ -56,3 +57,5 @@ func _physics_process(delta):
 		
 	if not multiplayer.is_server() || MultiplayerManager.is_host:
 		_apply_animations(delta)
+		
+

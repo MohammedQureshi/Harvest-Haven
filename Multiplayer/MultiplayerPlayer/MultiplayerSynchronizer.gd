@@ -19,6 +19,8 @@ func _physics_process(delta):
 func _process(delta):
 	if Input.is_action_just_pressed("attack"):
 		attack.rpc()
+	if Input.is_action_just_pressed("escape"):
+		$"../Camera2D/PauseMenu".visible = true
 
 @rpc("call_local")
 func attack():

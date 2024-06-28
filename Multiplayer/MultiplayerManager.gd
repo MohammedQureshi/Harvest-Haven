@@ -6,7 +6,8 @@ var SERVER_IP = ""
 var multiplayer_scene = preload("res://Multiplayer/MultiplayerPlayer/MultiplayerPlayerScene.tscn")
 var is_multiplayer = false
 var is_host = false
-
+var client_peer
+var server_peer 
 var _players_spawn_node
 
 func host_game():
@@ -14,7 +15,7 @@ func host_game():
 	
 	_players_spawn_node = get_tree().get_current_scene().get_node("Players")
 
-	var server_peer = ENetMultiplayerPeer.new()
+	server_peer = ENetMultiplayerPeer.new()
 	server_peer.create_server(SERVER_PORT)
 	
 	multiplayer.multiplayer_peer = server_peer
@@ -28,7 +29,7 @@ func host_game():
 func join_hosted_game():
 	print("Joined hosted game")
 	
-	var client_peer = ENetMultiplayerPeer.new()
+	client_peer = ENetMultiplayerPeer.new()
 	client_peer.create_client(SERVER_IP, SERVER_PORT)
 	multiplayer.multiplayer_peer = client_peer
 	
@@ -42,6 +43,17 @@ func _add_player_to_game(id: int):
 	player_to_add.name = str(id)
 	
 	_players_spawn_node.add_child(player_to_add, true)
+
+func disconnect_player():
+	if is_multiplayer:
+		if is_host:
+			server_peer.close()
+		else:
+			client_peer.close()
+			
+		is_multiplayer = false
+		is_host = false
+		SERVER_IP = ""
 
 func _del_player_from_game(id: int):
 	print("Player %s left the game" % id)

@@ -10,7 +10,6 @@ func _ready():
 func _process(delta):
 	pass
 
-
 func _on_host_pressed():
 	MultiplayerManager.is_multiplayer = true
 	MultiplayerManager.is_host = true
