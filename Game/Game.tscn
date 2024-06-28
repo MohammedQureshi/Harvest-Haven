@@ -457,6 +457,6 @@ position = Vector2(-5, -53)
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://Multiplayer/MultiplayerPlayer/MultiplayerPlayerScene.tscn")
 spawn_path = NodePath("../Players")
-spawn_limit = 5
+spawn_limit = 15
 
 [node name="Players" type="Node2D" parent="."]
