@@ -44,6 +44,9 @@ func _apply_movement_from_input(delta):
 	
 	#if do_attack:
 		#do_attack = false
+		
+	#if Input.is_action_just_pressed("escape"):
+		
 	
 	direction = %InputSynchronizer.input_direction
 	

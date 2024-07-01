@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var pause_menu = $Player/Camera2D/PauseMenu
+@onready var pause_menu = $"UserInterfaces/Pause Menu"
 
 var paused = false
 
@@ -12,17 +12,16 @@ func _ready():
 			MultiplayerManager.join_hosted_game();
 
 func _process(delta):
-	if not MultiplayerManager.is_multiplayer:
-		if Input.is_action_just_pressed("escape"):
-			pause(paused)
+	if Input.is_action_just_pressed("escape"):
+		pause(paused)
 	
 func pause(state):
-	if not MultiplayerManager.is_multiplayer:
 		if state:
 			pause_menu.hide()
-			get_tree().paused = false
-
+			if not MultiplayerManager.is_multiplayer:
+				get_tree().paused = false
 		else:
 			pause_menu.show()
-			get_tree().paused = true
+			if not MultiplayerManager.is_multiplayer:
+				get_tree().paused = true
 	

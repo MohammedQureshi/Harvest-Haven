@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bguxomsq8ul4v"]
+[gd_scene load_steps=9 format=3 uid="uid://bguxomsq8ul4v"]
 
 [ext_resource type="Texture2D" uid="uid://ctyn5118qlbco" path="res://Assets/sprites/CluckingChickenIdleSide.png" id="1_748qs"]
 [ext_resource type="Script" path="res://Character/Animals/Chicken/Chicken.gd" id="1_bqo82"]
@@ -39,6 +39,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ejis5"]
+radius = 3.0
+
 [node name="Chicken" type="Node2D"]
 script = ExtResource("1_bqo82")
 
@@ -47,3 +50,9 @@ sprite_frames = SubResource("SpriteFrames_ydvo2")
 autoplay = "default"
 frame = 1
 frame_progress = 0.0824962
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_ejis5")

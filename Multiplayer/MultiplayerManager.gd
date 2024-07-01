@@ -13,6 +13,10 @@ var _players_spawn_node
 func host_game():
 	print("Hosting game")
 	
+	if not multiplayer.get_peers().is_empty():
+		print("Server is already running on this machine.")
+		return
+	
 	_players_spawn_node = get_tree().get_current_scene().get_node("Players")
 
 	server_peer = ENetMultiplayerPeer.new()
