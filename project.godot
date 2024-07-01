@@ -22,7 +22,9 @@ MultiplayerManager="*res://Multiplayer/MultiplayerManager.gd"
 [display]
 
 window/size/always_on_top=true
+window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+window/stretch/scale=0.75
 
 [dotnet]
 
